@@ -34,16 +34,23 @@ function App() {
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Header style={{ display: "flex", alignItems: "center", gap: 16 }}>
-        <Typography.Title level={4} style={{ color: "#fff", margin: 0 }}>
-          React Router · Ant Design
+      <Header
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 16,
+          justifyContent: "space-between",
+        }}
+      >
+        <Typography.Title level={8} style={{ color: "#fff", margin: 0 }}>
+          Movie-Site
         </Typography.Title>
         <Menu
           theme="dark"
           mode="horizontal"
           selectedKeys={[selectedKey]}
           items={menuItems}
-          style={{ flex: 1 }}
+          style={{ gap: 14 }}
         />
       </Header>
       <Content style={{ padding: 24 }}>
