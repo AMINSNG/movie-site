@@ -7,7 +7,7 @@ function MovieCard() {
     <>
       <Card
         hoverable
-        style={{ width: 240 }}
+        style={{ width: 240, backgroundColor: "rgba(78, 78, 127, 0.52)" }}
         cover={
           <img
             draggable={false}
