@@ -1,19 +1,20 @@
 import { Layout, Menu, Typography } from "antd";
+import { Avatar } from "antd";
 import {
   InfoCircleOutlined,
-  TeamOutlined,
   HomeOutlined,
+  HeartOutlined,
 } from "@ant-design/icons";
 import { Link, Outlet, useLocation } from "react-router";
 import "./App.css";
-
+const url = "./src/assets/movie-recorder-light.svg";
 const { Header, Content, Footer } = Layout;
 
 function App() {
   const location = useLocation();
   const selectedKey =
-    location.pathname.startsWith("/students") && location.pathname !== "/"
-      ? "/students"
+    location.pathname.startsWith("/favorite") && location.pathname !== "/"
+      ? "/favorite"
       : location.pathname.startsWith("/about")
       ? "/about"
       : "/";
@@ -21,9 +22,9 @@ function App() {
   const menuItems = [
     { key: "/", icon: <HomeOutlined />, label: <Link to="/">Home</Link> },
     {
-      key: "/home",
-      icon: <TeamOutlined />,
-      label: <Link to="/students">Students</Link>,
+      key: "/favorite",
+      icon: <HeartOutlined />,
+      label: <Link to="/favorite">Favorite</Link>,
     },
     {
       key: "/about",
@@ -40,28 +41,39 @@ function App() {
           alignItems: "center",
           gap: 16,
           justifyContent: "space-between",
+          backgroundColor: "#4d4863ff",
         }}
       >
-        <Typography.Title level={8} style={{ color: "#fff", margin: 0 }}>
-          Movie-Site
-        </Typography.Title>
+        <div style={{ display: "flex", gap: 10 }}>
+          <img src={url} alt="" width={50} style={{ marginBottom: 10 }} />
+          <Typography.Title
+            level={5}
+            style={{
+              color: "#fff",
+              margin: 0,
+              fontSize: 30,
+              alignItems: "center",
+            }}
+          >
+            Movie-Time
+          </Typography.Title>
+        </div>
+
         <Menu
           theme="dark"
           mode="horizontal"
           selectedKeys={[selectedKey]}
           items={menuItems}
-          style={{ gap: 14 }}
+          style={{ gap: 1, backgroundColor: "#4d4863ff" }}
         />
       </Header>
-      <Content style={{ padding: 24 }}>
+      <Content style={{ padding: 24, backgroundColor: "rgba(105, 105, 134, 0.52)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <Outlet />
         </div>
       </Content>
       <Footer style={{ textAlign: "center" }}>
-        <Typography.Text type="secondary">
-          Sample student routing demo
-        </Typography.Text>
+        <Typography.Text type="secondary">Created by AMIN :)</Typography.Text>
       </Footer>
     </Layout>
   );
