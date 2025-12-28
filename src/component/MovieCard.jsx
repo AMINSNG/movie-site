@@ -2,21 +2,17 @@ import { Card } from "antd";
 
 const { Meta } = Card;
 
-function MovieCard() {
+function MovieCard({ cardData }) {
+  
+
   return (
     <>
       <Card
         hoverable
         style={{ width: 240, backgroundColor: "rgba(78, 78, 127, 0.52)" }}
-        cover={
-          <img
-            draggable={false}
-            alt="example"
-            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-          />
-        }
+        cover={<img draggable={false} alt="example" src={cardData.imageUrl} />}
       >
-        <Meta title="Europe Street beat" description="www.instagram.com" />
+        <Meta title={cardData.title} description="www.instagram.com" />
       </Card>
     </>
   );

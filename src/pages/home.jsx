@@ -1,30 +1,33 @@
 import { Col, Row } from "antd";
 import MovieCard from "../component/MovieCard";
-import { use, useEffect } from "react";
+import { use, useEffect, useState } from "react";
 import { getMovies } from "../api/movie";
-const Movies = [1, 2, 3, 4, 5];
 import { Input } from "antd";
-const onSearch = (value, _e, info) => console.log(info?.source, value);
+import { Link } from "react-router";
 const { Search } = Input;
 
 export default function Home() {
+  const [data, setdata] = useState([]);
   useEffect(() => {
     getMovies().then((respons) => {
-      console.log(respons.data);
+      setdata(respons.data);
     });
   }, []);
+
   return (
     <>
       <Search
         placeholder="input search text"
         allowClear
-        onSearch={onSearch}
+        // onSearch={onSearch}
         style={{ Width: 20, marginBottom: 40 }}
       />
       <Row gutter={[22, 55]}>
-        {Movies.map(() => (
+        {data.map((item) => (
           <Col span={8}>
-            <MovieCard />
+            <Link to={`movie/${item.id}`}>
+              <MovieCard cardData={item} />
+            </Link>
           </Col>
         ))}
       </Row>

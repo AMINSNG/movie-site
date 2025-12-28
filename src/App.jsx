@@ -9,6 +9,7 @@ import { Link, Outlet, useLocation } from "react-router";
 import "./App.css";
 const url = "./src/assets/movie-recorder-light.svg";
 const { Header, Content, Footer } = Layout;
+import { MdOutlineMovieFilter } from "react-icons/md";
 
 function App() {
   const location = useLocation();
@@ -45,7 +46,7 @@ function App() {
         }}
       >
         <div style={{ display: "flex", gap: 10 }}>
-          <img src={url} alt="" width={50} style={{ marginBottom: 10 }} />
+          <MdOutlineMovieFilter size={48} />
           <Typography.Title
             level={5}
             style={{
@@ -67,7 +68,9 @@ function App() {
           style={{ gap: 1, backgroundColor: "#4d4863ff" }}
         />
       </Header>
-      <Content style={{ padding: 24, backgroundColor: "rgba(105, 105, 134, 0.52)" }}>
+      <Content
+        style={{ padding: 24, backgroundColor: "rgba(105, 105, 134, 0.52)" }}
+      >
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <Outlet />
         </div>

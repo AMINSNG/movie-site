@@ -4,6 +4,7 @@ import App from "./App";
 import Favorites from "./pages/Favorite";
 import About from "./pages/About";
 import Home from "./pages/Home";
+import Singlemovie from "./pages/singlemovie";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "favorite", element: <Favorites /> },
       { path: "about", element: <About /> },
+      { path: "movie/:movieId", element: <Singlemovie /> },
     ],
   },
 ]);
